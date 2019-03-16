@@ -1,0 +1,162 @@
+<!-- ======================================== -->
+<!-- Maul Project - Una Ciudad, Una Comunidad -->
+<!-- Author: Johnny Zapata Serna -->
+<!-- File: Comuna show. -->
+<!-- ======================================== -->
+
+<section id="show_comuna">
+	<!-- Breadcrumb navigation -->
+	<div class="container">
+		<ul class="breadcrumb page-header">
+			<li><a href="/"><i class="fa fa-home"></i></a></li>
+			<li><a href="/">Santiago de Cali</a></li>
+			<li><a href="javascript:document.location.reload();"><%= @comuna.name %></a></li>
+		</ul>
+	</div>
+	<div class="container">
+		<a href="javascript:document.location.reload();">
+			<h2 align="center"><%= @comuna.name %></h2>
+		</a>
+		<div class="well">
+			<div class="container">
+				<div class="col-lg-2">
+					<div class="community-tab">
+						<a href="#comunidades" data-toggle="tab"><h5>Comunidades</h5></a>
+					</div>
+					<div class="site-tab">
+						<span><a href="#sitios" data-toggle="tab"><h5>Sitios</h5></a></span>
+					</div>
+					<div class="event-tab">
+						<span><a href="#eventos" data-toggle="tab"><h5>Eventos</h5></a></span>
+					</div>
+				</div>
+
+				<div class="col-lg-10" align="center" >
+					<div class="row">
+						<!-- Tab Content para mostrar un objeto {comunidad, sitio, evento} de cada comuna -->
+
+						<div id="TabContent" class="tab-content">
+
+							<!-- Map comunas de Cali -->
+							<div id="img_comuna" class="tab-pane fade active in maps-google">
+								<div class="thumbnail">
+								<iframe src= <%= @comuna.enlace.gsub(/<iframe src="|" width="600" height="450" frameborder="0" style="border:0" allowfullscreen><|iframe>/,"") %> frameborder="0" style="border:0" allowfullscreen>
+								</iframe>
+								</div>
+							</div>
+
+							<!-- === Communities by comuna and topics === -->
+							<div id="comunidades" class="tab-pane fade">
+
+								<!-- Tab Topics -->
+								<div class="thumbnail">
+								<div id="subTab" class="btn-group" data-toogle="buttons-radio">
+									<% Topic.all.collect do |top| %>
+										<a href="#topic<%= top.id %>" class="btn active" data-toggle="tab">
+											<span class="topics-community"><%= top.name %></span>
+										</a>
+									<% end -%>
+								</div>
+								</div>
+
+								<!-- Content Tab Topics - Show select topic -->
+								<div class="tab-content">
+									<% Topic.all.collect do |top| %>
+										<div class="tab-pane" id="topic<%=top.id%>">
+											<% @comuna.community.each do |com| %>
+											<% if top.id === com.topic_id %>
+												<div class="col-lg-2">
+													<div class="thumbnail">
+														<span class="topics-community"><%= link_to com.name, com %></span>
+													</div>
+												</div>
+											<% end %>
+										<% end -%>
+										</div>
+									<% end -%>
+								</div>
+							</div>
+
+
+							<!-- === Sites by comuna and categories === -->
+							<div id="sitios" class="tab-pane fade">
+
+								<!-- Tab Categories -->
+								<div class="thumbnail">
+								<div id="subTab2" class="btn-group" data-toogle="buttons-radio">
+									<% Category.all.collect do |cat| %>
+										<a href="#categoria<%= cat.id %>" class="btn active" data-toggle="tab">
+											<span class="topics-site"><%= cat.name %></span>
+										</a>
+									<% end -%>
+								</div>
+								</div>
+
+								<!-- Content Tab Topics - Show select topic -->
+								<div class="tab-content">
+									<% Category.all.collect do |cat| %>
+										<div class="tab-pane" id="categoria<%=cat.id%>">
+											<% @comuna.sites.each do |sit| %>
+											<% if cat.id === sit.category_id %>
+												<div class="col-lg-2">
+													<div class="thumbnail">
+														<span class="topics-site">
+														<%= link_to sit.name, sit %></span>
+													</div>
+												</div>
+											<% end %>
+										<% end -%>
+										</div>
+									<% end -%>
+								</div>
+							</div>
+
+							<!-- === Events by comuna and categories === -->
+							<div id="eventos" class="tab-pane fade">
+
+								<!-- Tab Topics -->
+								<div class="thumbnail">
+								<div id="subTab3" class="btn-group" data-toogle="buttons-radio">
+									<% Topic.all.collect do |top| %>
+										<a href="#tipo<%= top.id %>" class="btn active" data-toggle="tab">
+											<span class="topics-event"><%= top.name %></span>
+										</a>
+									<% end -%>
+								</div>
+								</div>
+
+								<!-- Content Tab Topics - Show select topic -->
+								<div class="tab-content">
+									<% Topic.all.collect do |top| %>
+										<div class="tab-pane" id="tipo<%=top.id%>">
+											<% @comuna.sites.each do |sit| %>
+											<% Event.all.collect do |eve| %>
+												<% if eve.site_id === sit.id && eve.topic_id === top.id%>
+													<div class="col-lg-2">
+													<div class="thumbnail">
+														<span class="topics-event"><%= link_to eve.name, eve %></span>
+														</div>
+													</div>
+												<% end %>
+											<% end -%>
+											<% end -%>
+										</div>
+									<% end -%>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- === About comuna === -->
+			<div class="col-lg-12">
+				<h3 class="page-header">Sobre la Comuna</h3>
+				<p> <%= @comuna.about %> </p>
+			</div>
+
+		</div>
+	</div>
+</section>
+<p id="notice"><%= notice %></p>

@@ -1,0 +1,72 @@
+<!-- ======================================== -->
+<!-- Maul Project - Una Ciudad, Una Comunidad -->
+<!-- Autor: Johnny Zapata Serna -->
+<!-- File: Events show. -->
+<!-- ======================================== -->
+
+<section id="show_event">
+
+  <!-- Breadcrumb navigation -->
+  <div class="container">
+    <ul class="breadcrumb page-header">
+      <li><a href="/"><i class="fa fa-home"></i></a></li>
+      <li><a href="/events">Eventos</a></li>
+      <li><a href="/comunas/<%= @event.site.comuna.id %>"><%= @event.site.comuna.name %></a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+      <h2><%= @event.name %></h2>
+      <div class="well">
+        <div class="row" align="center">
+          <div class="col-md-offset-1 col-sm-offset-1 col-md-10 col-sm-10 col-xs-10">
+
+            <div class="container" align="left">
+              <p> <strong>Fecha: </strong><%= @event.fecha %>
+              <strong>Hora:</strong> <%= @event.hora.strftime("%I:%M:%p") %>
+              <strong>Sitio: </strong> <a href=<%= site_path %>> <%= @event.site.name %>  (<%= @event.site.adress %>) </p></a>
+            </div>
+            
+            <div class="container thumbnail">
+              <img class="img-responsive">
+                <%= image_tag @event.image.url%>
+              </img>
+            </div>
+
+            
+              <div class="container" align="justify">
+                <p> <%= @event.about %> </p>  
+              </div>         
+
+            <div class="container">
+              <h4>Mapa del sitio</h4>
+              <div class="maps-google">
+                <iframe src= <%= @event.site.mapgoogle.gsub(/<iframe src="|" width="400" height="300" frameborder="0" style="border:0" allowfullscreen><|iframe>/,"") %> frameborder="0" style="border:0" ></iframe>
+              </div>
+            </div>
+
+        </div>
+      </div>      
+    <!--
+  <% if user_signed_in? %>
+
+  <% else %>
+    <div class="row" align="center">
+      <h4 class="page-header">Primero Debes Iniciar Sesión</h4>
+      <div class="col-md-6">
+        <div class="thumbnail thumbnail-btn">
+            <%= link_to "REGISTRARSE", new_user_registration_path, :class => 'navbar-link' %>
+        </div>
+      </div>
+
+      <div class="col-md-6" >
+        <div class="thumbnail thumbnail-btn">
+          <a href="/users/sign_in">INICIAR SESIÓN</a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  -->
+  </div>
+  <%= link_to 'Modificar', edit_event_path(@event) %>
+</section>

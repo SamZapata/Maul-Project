@@ -1,0 +1,72 @@
+<div class="form">
+  <%= form_for(event) do |f| %>
+    <% if event.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+        <ul>
+        <% event.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field" align="left">
+      <%= f.label :Nombre_del_Evento %>
+      <%= f.text_field :name, placeholder: 'Nombre del Evento' %>      
+    </div>
+
+    <div class="field" align="left">
+      <%= f.label :Descripción %>
+      <%= f.text_area :about, placeholder: 'Descripción del Evento' %>
+    </div>
+
+    <p align="left">Selecciona el tipo de evento que realizarás</p>
+    <div class="thumbnail">
+      <div class="field">
+        <%= f.label :Tipo_de_Evento %>
+        <%= f.select(:topic_id, Topic.all.collect {|a| [a.name, a.id]},{prompt: 'seleccionar'},{} )%>
+      </div>
+    </div>
+
+    <p>Escoge la fecha y hora de realización del evento</p>
+    <div class="thumbnail">
+      <div class="field">
+        <%= f.label :Fecha %>
+        <%= f.date_select :fecha %>
+      </div>
+
+      <div class="field">
+        <%= f.label :Hora %>
+        <%= f.time_select :hora %>
+      </div>
+    </div>
+
+    <p >¿El lugar donde se realizará el evento ya se encuentra registrado en Maul Project?</p>
+
+    <div class="thumbnail">
+      <div class="field">
+        <%= f.label :sitio %>
+        <%= f.select(:site_id, Site.all.collect {|a| [a.name, a.id]},{prompt: 'seleccione un sitio'},{} )%>
+      </div>
+    </div>
+
+    <!--<div class="field">
+      <%= f.label :estado %>
+      <%= f.text_field :estado %>
+    </div>-->
+
+    <p align="left">Añade una imagen a tu evento</p>
+    <div class="field">
+      <%= f.file_field :image %>
+      <% if @event.image%>
+        <%= image_tag @event.image.url(:thumb)%>
+      <% end %>
+     </div>    
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

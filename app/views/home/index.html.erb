@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Maul Project</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Implementación de Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--<link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css">-->
+    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.scss">
+    <link rel="stylesheet" type="text/css" href="stylesheets/font-awesome.min.css.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/login-style.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/jquery-jvectormap-2.0.3.min.css">
+
+    <!-- Jquery jvectormap -->
+    <script src="javascripts/jquery-jvectormap-2.0.3.js"></script>
+
+    <!-- Map Comunas santiago de Cali -->
+    <script src="javascripts/source_vector_map.js"></script>
+
+    <script src="javascripts/jquery.js"></script>
+    <script src="javascripts/jquery.min.js"></script>
+
+    <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+
+    <!--
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <!-- , 'data-turbolinks-track': 'reload'
+
+    <%= javascript_include_tag 'application' %>
+    <!-- , 'data-turbolinks-track': 'reload' -->
+</head>
+
+  <body>
+
+    <section id="bg-map">
+      <div class="container">
+      <h2 class="page-header" align="center">Una Ciudad, Una Comunidad</h2>
+      <div class="container" align="center">
+        <h4 align="center">Selecciona una Comuna</h4>
+        <!--<a href="/comunas/">  </a>-->
+        <div align="center">
+          <div class="">
+            <%= render partial: 'map' %>
+          </div>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="javascripts/bootstrap.min.js"></script>
+    <!--<script src="javascripts/application.js"></script>-->
+    <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+
+  </body>
+</html>

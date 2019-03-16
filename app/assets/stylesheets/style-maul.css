@@ -1,0 +1,293 @@
+/* ======================================== */
+/* Maul Project - Una Ciudad, Una Comunidad */
+/* Autor: Johnny Zapata Serna */
+/* File: style maul css; */
+/* ======================================== */
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+a:hover{
+  fill: #5f5f5f;
+}
+
+.bg{
+  /*background: url('map_comunas_cali.gif');*/
+  background-size: cover;
+  align-content: center;
+  background-repeat: no-repeat;
+  background-color: #e0e0e0;
+}
+
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+.form {
+  position: relative;
+  opacity: 0.7;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 560px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input, textarea {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #53bdfd;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: #43A047;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+.form .register-form {
+  display: block;
+}
+
+#bg-map{
+  background-size: cover;
+/*  min-height: 800px; */
+}
+
+.bg-map-cali{
+  background: url('map_comunas_cali.gif');
+  background-size: cover;
+  align-content: center;
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+  width: 450px;
+  height: 525px;
+}
+
+#id_button{
+  background: blue;
+}
+
+/* Responsive maps */
+.maps-google {
+  position: relative;
+  padding-bottom: 75%;
+  height: auto;
+  overflow: hidden;
+}
+
+.maps-google iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Main Menu */
+.menu-header {
+  font-family: 'Graduate', sans-serif;
+  font-size: 16px;
+  font-color: white;
+  padding-top: 20px;
+}
+
+/* === Titles and subtitles === */
+.title-text {
+  padding-bottom: 9px;
+  padding-top: 5px;
+  border-bottom: 1px solid #f7f7f7;
+}
+
+/* subtitles */
+.subtitle-text {
+  padding-bottom: 3px;
+  padding-top: 5px;
+  font-size: 20px;
+}
+
+/* read text */
+.p-text {
+
+}
+
+/* main menu select position */
+.menu-select {
+  border: 2px solid white;
+  border-radius: 25px;
+  border-bottom: 45px;
+}
+
+/* Menu tab show comuna */
+.community-tab {
+  background-color: #115ac2;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+}
+
+.community-tab>span {
+  vertical-align: middle;
+}
+
+.site-tab {
+  background-color: #da412d;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+}
+
+.site-tab>span {
+  vertical-align: middle;
+}
+
+.event-tab {
+  background-color: #3a8b42;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+}
+
+.event-tab>span {
+  vertical-align: middle;
+}
+
+/* Field background communities */
+.community-field {
+  background-color: #115ac2;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+
+.community-field>span {
+  vertical-align: middle;
+}
+
+/* Field background events */
+.event-field {
+  background-color: #3a8b42;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+
+.event-field>span {
+  vertical-align: middle;
+}
+
+/* List show topics in comuna */
+.topics-community {
+  color: #115ac2;
+  font-size: 16px;
+  text-align: left;
+}
+
+.topics-site {
+  color: #da412d;
+  font-size: 16px;
+  text-align: left;
+}
+
+.topics-event {
+  color: #3a8b42;
+  font-size: 16px;
+  text-align: left;
+}
+
+
+/* Footer */
+.footer {
+    width: 100%;
+    background-color: #424242;
+    position: relative;
+    left: 0;
+    bottom: 0px;
+    text-align: center;
+    font-family: 'Gotham', sans-serif;
+    color: #717f86;
+
+}
+.footer a {
+    color: #fff;
+}
+
+.footer .footer-top {
+    padding-top: 9rem;
+    padding-bottom: 5rem;
+}
+.footer .widget-title, .footer .widget-title a {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    color: #999;
+}
+.footer .widget-title {
+    padding-bottom: 20px;
+    font-family: 'Satisfy', sans-serif;
+    font-size: 44px;
+    color: #FFB03B;
+}
+.footer .widget, .footer address {
+    color: #999;
+    text-transform: none;
+    font-style: normal;
+    padding-bottom: 15px;
+}
+.footer .navigation, .footer .social-list {
+    float: none;
+    margin-bottom: 20px;
+}
+
+/* Text footer */
+.footer-text {
+  color: white;
+  padding-bottom: 9px;
+  padding-top: 20px;
+  border-bottom: 1px solid #f7f7f7;
+}
+
+/* Icons social media Footer */
+.social-footer [class*="fa fa-"] {
+  /* background-color: black; */
+  border-radius: 30px;
+  color: white;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  line-height: 30px;
+  margin: auto 3px;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.social-footer [class*="fa fa-"]:hover {
+  background-color: transparent !important;
+  color: black;
+}

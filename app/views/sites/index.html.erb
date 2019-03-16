@@ -1,0 +1,74 @@
+<!-- ======================================== -->
+<!-- Maul Project - Una Ciudad, Una Comunidad -->
+<!-- Autor: Johnny Zapata Serna -->
+<!-- File: Sites index -->
+<!-- ======================================== -->
+
+
+<!-- Breadcrumb navigation -->
+  <div class="container">
+    <ul class="breadcrumb page-header">
+      <li><a href="/"><i class="fa fa-home"></i></a></li>
+      <li><a href="/">Santiago de Cali</a></li>
+      <li><a href="/sites">Sitios</a></li>
+    </ul>
+  </div>
+
+<!-- Index -->
+<div class="container" align="center">
+
+  <h2 align="center">Sitios</h2>
+  <%= link_to 'Registrar Un Sitio', new_site_path %>
+  
+  <!-- === Tab sites by comuna === -->
+    <div class="container">
+      <div class="thumbnail">
+      <div id="subTab" class="btn-group" data-toogle="buttons-radio">
+        <% Comuna.all.collect do |com| %>
+          <a href="#comuna<%= com.id %>" class="btn active" data-toggle="tab">
+            <span class="topics-site"><%= com.name %></span>
+          </a>
+        <% end -%>
+      </div>
+      </div>
+
+      <div class="container">
+        <div id="TabContent" class="tab-content">
+
+          <!-- === Content all sites === -->
+            <div id="index-sites" class="tab-pane fade active in">
+              <h4 class="">Todos los sitios registrados en Maul Project</h4>
+              <% Site.all.collect do |sit| %>
+                <div class="thumbnail col-lg-3 col-md-3">
+                  <img class="img-responsive">
+                  <%= link_to image_tag(sit.avatar.url, :width=>200, :heigth=>200), sit %>
+                  <div class="caption">
+                    <%= link_to sit.name, sit %>
+                  </div>
+                </div>
+              <% end -%>
+            </div>
+
+          <% Comuna.all.collect do |com| %>
+            <div class="tab-pane fade" id="comuna<%= com.id %>">
+              <% Site.all.collect do |sit| %>
+                <% if com.id === sit.id %>
+                  <div class="thumbnail col-lg-3 col-md-3">
+                    <img class="img-responsive">
+                    <%= link_to image_tag(sit.avatar.url, :width=>200, :heigth=>200), sit %>
+                    <div class="caption">
+                      <%= link_to sit.name, sit %>
+                    </div>
+                  </div>
+                <% end %>
+              <% end -%>
+            </div>
+          <% end -%>
+        </div>
+      </div>
+
+    </div>
+
+</div>
+
+<p id="notice"><%= notice %></p>

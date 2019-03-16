@@ -1,0 +1,76 @@
+<!-- ======================================== -->
+<!-- Maul Project - Una Ciudad, Una Comunidad -->
+<!-- Autor: Johnny Zapata Serna -->
+<!-- File: Events index -->
+<!-- ======================================== -->
+
+
+<!-- Breadcrumb navigation -->
+  <div class="container">
+    <ul class="breadcrumb page-header">
+      <li><a href="/"><i class="fa fa-home"></i></a></li>
+      <li><a href="/">Santiago de Cali</a></li>
+      <li><a href="/events">Eventos</a></li>
+    </ul>
+  </div>
+
+<!-- Index events -->
+<div class="container" align="center">
+  <h2 align="center">Eventos</h2>
+  <%= link_to 'Crear Un Evento', new_event_path %>
+  
+  <table>
+    <thead>
+      <tr>
+        <th> </th>        
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>            
+      <% @events.each do |event| %>
+        <tr>
+          <td>
+            <div class="row" align="center">
+              <div class="col-md-5 ">
+                <img class="img-responsive">
+                <%= link_to image_tag(event.image.url, :width=>300, :heigth=>200), event %>
+              </div>
+              <div class="col-md-7 " align="left">
+                <h4><%= link_to event.name, event %></h4>
+                <p><strong>Resumen: </strong><%= event.about %></p>
+                <p><strong>Fecha: </strong><%= event.fecha %></p>
+              </div>
+            </div>
+            <hr>
+          </td>
+
+        </tr>
+      <% end %>
+        
+    </tbody>
+  </table>
+
+  <!--
+  <% if user_signed_in? %>
+
+  <% else %>
+    <div class="row" align="center">
+      <h4 class="page-header">Primero Debes Iniciar Sesión</h4>
+      <div class="col-md-6">
+        <div class="thumbnail thumbnail-btn">
+            <%= link_to "REGISTRARSE", new_user_registration_path, :class => 'navbar-link' %>
+        </div>
+      </div>
+
+      <div class="col-md-6" >
+        <div class="thumbnail thumbnail-btn">
+          <a href="/users/sign_in">INICIAR SESIÓN</a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  -->
+
+  <br>
+</div>

@@ -1,3 +1,35 @@
+# gitignore maul-project
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Rails specific stuff
+config/database.yml
+config/env.yml
+config/app_config.yml
+config/secrets.yml
+config/redis.yml
+
+##################333333
 *.rbc
 capybara-*.html
 .rspec
@@ -46,4 +78,3 @@ bower.json
 
 # Ignore node_modules
 node_modules/
-

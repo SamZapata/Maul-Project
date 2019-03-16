@@ -1,0 +1,131 @@
+<!-- ======================================== -->
+<!-- Maul Project - Una Ciudad, Una Comunidad -->
+<!-- Autor: Johnny Zapata Serna -->
+<!-- File: Communities layout. -->
+<!-- ======================================== -->
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Maul - Comunidades</title>
+    <meta charset="utf-8">
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Mukta+Mahee|Roboto|Ubuntu|Graduate" rel="stylesheet">
+
+    <!-- Implementación de Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.scss">
+    <link rel="stylesheet" type="text/css" href="stylesheets/font-awesome.css.scss">
+    <link rel="stylesheet" type="text/css" href="stylesheets/font-awesome.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="stylesheets/scaffolds.scss">-->
+    <link rel="stylesheet" type="text/css" href="stylesheets/style-maul.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/communities.scss">
+    <!--<link rel="stylesheet" type="text/css" href="stylesheets/scaffolds.scss">-->
+  </head>
+
+<body>
+
+  <!-- Menú Barra superior -->
+
+    <nav class="navbar navbar-inverse-community navbar-static-top navbar-fixed-top" role="navigation">
+      <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span class="sr-only">Maul</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand logo" href="/">
+              <%= image_tag "Logo_MAUL_Project_BLANCO_.png", :width=>80, :height=>47 %>
+            </a>
+          </div>
+
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right menu-header">
+              <li class="menu-select">
+                <a href="/communities">Comunidades</a>
+              </li>
+              <li>
+                <a href="/sites">Sitios</a>
+              </li>
+              <li>
+                <a href="/events">Eventos</a>
+              </li>
+
+              <% if user_signed_in? %>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="/users/edit"> <%=current_user.first_name%>
+                        <ul class="dropdown-menu" role="menu">
+
+                            <li>
+                              <a href="/user/show">Ver Perfil</a>
+                            </li>
+
+                            <li>
+                              <a href="#"><%= link_to 'Editar Perfil', edit_user_registration_path, :class => 'navbar-link' %></a>
+                            </li>
+
+                            <li>
+                              <a href="#"><%= link_to "Salir", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></a>
+                            </li>
+                        </ul>
+                    </li>
+                <%else%>
+                    <li>
+                        <a href= "/users/sign_up"> Registrarse </a>
+                    </li>
+                    <li>
+                        <a href= "/users/sign_in"> Iniciar Sesión </a>
+                    </li>
+              <% end %>
+            </ul>
+          </div>
+      </div>
+    </nav>
+  <!-- FIN BARRA DE MENU PRINCIPAL -->
+
+  <%= yield %>
+
+  <!-- Footer -->
+    <footer>
+      <div class="panel-footer">
+        <div class="row">
+        <div class="container col-lg-4 ">
+          <h6 class="menu-header">MAUL PROJECT</h6>
+          <span>
+            <a class="social-footer social-icon" href="#" target="_blank">
+              <i class="fa fa-facebook"></i>
+            </a>
+            <a class="social-footer social-icon" href="#" target="_blank">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </span>
+        </div>
+
+        <div class="container col-lg-4">
+          <h6 class="footer-text">Sobre el proyecto:</h6>
+          <a href="/project/about"><h6 class="">¿Que es Maul Project?</h6></a>
+          <a href="/project/information"><h6 class="">¿Como Surge?</h6></a>
+        </div>
+
+        <div class="container col-lg-4">
+          <h6 class="footer-text">Recursos:</h6>
+          <a href="/project/terms-of-services"><h6>Terminos Y Condiciones de Uso</h6></a>
+          <a href="#"><h6>Proyección</h6></a>
+        </div>
+        </div>
+
+        <div class="container col-lg-12 text-center">
+          <h6>Developed By: <a href="https://github.com/SamZapata" target="_blank">@samzapata</a></h6>
+        </div>
+      </div>
+    </footer>
+
+</body>
+</html>
