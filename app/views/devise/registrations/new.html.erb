@@ -1,60 +1,32 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <title>Maul Project</title>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Implementación de Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css.scss">
-    <link rel="stylesheet" type="text/css" href="stylesheets/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="stylesheets/login-style.css">
-    <link rel="stylesheet" type="text/css" href="stylesheets/style-maul.css">
-
-    <!--
-    <%= csrf_meta_tags %>
-    
-    <%= stylesheet_link_tag 'application', media: 'all' %>     
-    <!-- , 'data-turbolinks-track': 'reload'
-
-    <%= javascript_include_tag 'application' %>
-    <!-- , 'data-turbolinks-track': 'reload' -->
-</head>
-
-<body>
-  <section id="registro">
-  <nav class="navbar navbar-inverse-sub navbar-stactic-sub">  
-    <h2 class="page-header" align="center">Registrarse</h2>
-  </nav>
-  <div class="container">    
+<section id="registro">
+  <h2 class="page-header" align="center">Registrarse</h2>
+  <div class="container">
     <div class="row" align="center">
-    
+
     <div class="form">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
 
-      <div class="field">        
+      <div class="field">
         <%= f.text_field :username, placeholder:'nombre de usuario', autofocus: true %>
       </div>
 
-      <div class="field">        
+      <div class="field">
         <%= f.email_field :email, placeholder:'email', autofocus: true %>
       </div>
 
-      <div class="field">                
-        <%= f.password_field :password, placeholder:'password', autocomplete: "off" %>
+      <div class="field">
         <% if @minimum_password_length %>
-          <em>(mínimo <%= @minimum_password_length %> caracteres)</em>
-        <% end %><br />
+          <em>mínimo <%= @minimum_password_length %> caracteres</em>
+        <% end %>
+        <%= f.password_field :password, placeholder:'contraseña', autocomplete: "off" %>
       </div>
-
-      <div class="field">        
-        <%= f.password_field :password_confirmation, placeholder:'confirmar password', autocomplete: "off" %>
+      <div class="field">
+        <%= f.password_field :password_confirmation, placeholder:'confirmar contraseña', autocomplete: "off" %>
       </div>
 
       <div class="field">
-        <em>(Añade una imagen)</em>
+        <em>Añade una imagen</em>
         <%= f.file_field :avatar %>
       </div>
 
@@ -68,9 +40,4 @@
       </div>
     </div>
     </div>
-  
-  </section>
-  </div>
-
-</body>
-</html>
+</section>
