@@ -19,6 +19,7 @@ gem 'pg'
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'sassc'
 gem 'sassc-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -75,6 +76,18 @@ gem 'font-awesome-rails'
 # haml
 gem 'haml'
 
+# JS Library
+gem 'selectize-rails'
+
+# active forms
+gem 'active_attr'
+
+# Device Detector
+gem 'device_detector'
+
+# internationalitation
+gem 'rails-i18n'
+
 #Gema para habilitar caracteristicas del login y asset
 gem 'rails_12factor', group: :production
 
@@ -83,7 +96,8 @@ gem 'rails_12factor', group: :production
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'spirit_hands'
 end
 
 group :development do
@@ -93,6 +107,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   #gem 'spring-watcher-listen'
+  gem 'annotate'
+  gem 'haml-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -100,6 +116,7 @@ end
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
+
 end
 
 group :assets do
